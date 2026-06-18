@@ -1,0 +1,520 @@
+<!DOCTYPE html> 
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HAMA2_C 2_G 1_Preentrega_Memoria del Sonido_Argüelles, Da Rocha_Hahn_Rivero_Sanabria_Sánchez Usnayo</title>
+    
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PGNpcmNsZSBjeD0iMTIiIGN5PSIxMiIgcj0iMTEiIGZpbGw9IiMwMjAxMDIiIHN0cm9rZT0iI2ZmNTUwMCIgc3Ryb2tlLXdpZHRoPSIxIi8+PGNpcmNsZSBjeD0iMTIiIGN5PSIxMiIgcj0iOCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjNWEyMjA1IiBzdHJva2Utd2lkdGg9IjAuNSIvPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjUiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzVhMjIwNSIgc3Ryb2tlLXdpZHRoPSIwLjUiLz48Y2lyY2xlIGN4PSIxMiIgY3k9IjEyIiByPSIyLjUiIGZpbGw9IiNmZjU1MDAiLz48Y2lyY2xlIGN4PSIxMiIgY3k9IjEyIiByPSIwLjUiIGZpbGw9IiNmZmVlMDAiLz48L3N2Zz4=">
+
+    <style>
+    /* ==========================================================================
+       🎨 VARIABLES GLOBALES (Contraste Calibrado - Paleta Incandescente 2026)
+       ========================================================================== */
+    :root {
+        --fondo-obscuro: #020102;       /* Negro absoluto de base */
+        --crema-texto: #ffffff;         /* Blanco puro para lectura clara */
+        --naranja-fuego: #ff5500;       /* Naranja puro vivo (Intacto) */
+        --amarillo-incandescente: #ffee00; /* Brillo de máxima intensidad */
+        --marron-oxido: #5a2205;        /* Marrón/óxido para bordes secundarios y estructura */
+        --rojo-quemado: #3a0808;        /* Tono profundo para sombras y detalles oscuros */
+        --azul-penumbra: #0022aa;       /* Azul reducido en intensidad para el fondo */
+    }
+
+    /* ==========================================================================
+       🎯 RESET Y CONFIGURACIÓN GENERAL INTERNÉUTICA
+       ========================================================================== */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        background-color: var(--fondo-obscuro);
+        background-image: 
+            radial-gradient(at 15% 25%, rgba(255, 85, 0, 0.25) 0px, transparent 50%),
+            radial-gradient(at 85% 75%, rgba(0, 34, 170, 0.2) 0px, transparent 45%);
+        background-attachment: fixed;
+        color: var(--crema-texto);
+        font-family: 'Libre Baskerville', serif;
+        line-height: 1.6;
+        padding: 2rem 0;
+    }
+
+    .container {
+        max-width: 75rem;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+    }
+
+    /* ==========================================================================
+       🎯 SECCIÓN: TÍTULO Y RESUMEN
+       ========================================================================== */
+    .header-proyecto {
+        text-align: center;
+        margin-bottom: 4rem;
+        border-bottom: 1px solid rgba(255, 85, 0, 0.2); 
+        padding-bottom: 2.5rem;
+    }
+
+    .header-proyecto h1 {
+        font-size: 3rem;
+        color: var(--crema-texto);
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin-bottom: 1.5rem;
+        text-shadow: 0 0 15px rgba(255, 85, 0, 0.6);
+    }
+
+    .header-proyecto .resumen {
+        font-family: 'Roboto', sans-serif;
+        max-width: 40rem;
+        margin: 0 auto;
+        color: rgba(255, 255, 255, 0.75);
+        font-size: 1.05rem;
+        font-weight: 300;
+        text-wrap: balance;
+    }
+
+    /* ==========================================================================
+       🎬 SECCIÓN: VIDEO
+       ========================================================================== */
+    .seccion-video {
+        margin-bottom: 5rem;
+        text-align: center;
+    }
+
+    .video-contenedor {
+        max-width: 50rem;
+        margin: 0 auto;
+        border: 2px solid var(--marron-oxido); 
+        padding: 10px;
+        background-color: #000000;
+        box-shadow: 0 0 30px rgba(90, 34, 5, 0.3); 
+    }
+
+    .video-contenedor video {
+        width: 100%;
+        display: block;
+        filter: contrast(1.2) brightness(1);
+    }
+
+    .video-caption {
+        margin-top: 1rem;
+        font-size: 0.85rem;
+        color: rgba(255, 255, 255, 0.5);
+        font-style: italic;
+    }
+
+    /* ==========================================================================
+       🕹️ TEXTOS DE INSTRUCCIÓN 
+       ========================================================================== */
+    .instruccion {
+        text-align: center;
+        max-width: 42rem; 
+        margin: 0 auto 2.5rem auto; 
+        font-family: 'Roboto', sans-serif;
+        font-size: 0.95rem;
+        color: rgba(255, 255, 255, 0.65);
+        text-wrap: balance; 
+    }
+
+    /* ==========================================================================
+       📀 SECCIÓN: LOS 4 FORMATOS 
+       ========================================================================== */
+    .seccion-formatos h2, .seccion-comparaciones h2, .seccion-analisis h2 {
+        font-size: 1.8rem;
+        text-transform: uppercase;
+        color: var(--crema-texto);
+        margin-top: 4rem;
+        margin-bottom: 2rem;
+        text-align: center;
+        border-bottom: 1px dashed rgba(255, 85, 0, 0.4);
+        padding-bottom: 0.5rem;
+    }
+
+    .grilla-formatos {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 1.5rem;
+        margin-bottom: 4rem;
+    }
+
+    .formato-card {
+        background-color: rgba(5, 2, 8, 0.85); 
+        border: 1px solid rgba(90, 34, 5, 0.4); 
+        padding: 1.5rem;
+        text-align: center;
+        cursor: pointer;
+        transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .formato-card:hover {
+        transform: translateY(-5px);
+        border-color: var(--naranja-fuego);
+        box-shadow: 0 0 25px var(--naranja-fuego); 
+    }
+
+    .formato-card.activo {
+        border-color: var(--amarillo-incandescente);
+        box-shadow: 0 0 35px var(--naranja-fuego), inset 0 0 15px rgba(255, 238, 0, 0.3);
+    }
+
+    .formato-card .imagen-box {
+        width: 100%;
+        height: 180px;
+        background-color: #000000;
+        margin-bottom: 1.5rem;
+        overflow: hidden;
+        border: 1px solid rgba(255, 85, 0, 0.2); 
+    }
+
+    .formato-card .imagen-box img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        filter: saturate(0.2) brightness(0.6) contrast(1.2); 
+        transition: filter 0.3s ease;
+    }
+
+    .formato-card:hover .imagen-box img {
+        filter: saturate(1.4) brightness(1.1) contrast(1.1); 
+    }
+
+    .texto-revelado {
+        margin-top: 0.5rem;
+        opacity: 1;
+        visibility: visible;
+        transition: opacity 0.5s ease, visibility 0.5s ease;
+    }
+
+    .texto-revelado.oculto {
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    /* ==========================================================================
+       🖋️ IDENTIDADES TIPOGRÁFICAS DE SOPORTES
+       ========================================================================== */
+    .formato-cinta h3 { font-family: 'Cinzel', serif; font-size: 1.4rem; font-weight: 700; letter-spacing: 2px; color: var(--crema-texto); margin-bottom: 0.6rem; }
+    .formato-cinta p { font-family: 'Cinzel', serif; font-size: 0.85rem; font-weight: 500; letter-spacing: 1px; color: #d4c4b3; line-height: 1.5; }
+
+    .formato-vinilo h3 { font-family: 'Playfair Display', serif; font-size: 1.6rem; font-style: italic; font-weight: 600; color: var(--crema-texto); margin-bottom: 0.5rem; }
+    .formato-vinilo p { font-family: 'Playfair Display', serif; font-style: italic; font-size: 0.9rem; color: #d4c4b3; line-height: 1.5; }
+
+    .formato-cassette h3 { font-family: 'Courier Prime', monospace; font-size: 1.4rem; font-weight: bold; text-transform: uppercase; color: var(--crema-texto); letter-spacing: -1px; margin-bottom: 0.6rem; }
+    .formato-cassette p { font-family: 'Courier Prime', monospace; font-size: 0.85rem; color: #bfae9c; line-height: 1.4; }
+
+    .formato-digital h3 { font-family: 'Orbitron', sans-serif; font-size: 1.2rem; font-weight: 600; color: var(--crema-texto); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 0.7rem; }
+    .formato-digital p { font-family: 'Orbitron', sans-serif; font-size: 0.78rem; letter-spacing: 1px; color: #bfae9c; line-height: 1.6; }
+
+    /* ==========================================================================
+       🕹️ GRILLA DE COMPARACIONES
+       ========================================================================== */
+    .grilla-comparativa {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 450px 450px; 
+        gap: 0; 
+        width: 100vw; 
+        position: relative;
+        left: 50%;
+        right: 50%;
+        margin-left: -50vw;
+        margin-right: -50vw;
+        margin-bottom: 6rem;
+        background-color: var(--fondo-obscuro); 
+        padding: 0; 
+        border-top: 2px solid var(--marron-oxido);    
+        border-bottom: 2px solid var(--marron-oxido); 
+        box-shadow: 0 0 40px rgba(90, 34, 5, 0.2);
+    }
+
+    .bloque-audio {
+        background-color: rgba(0, 0, 0, 0.4);
+        border: 1px solid transparent;
+        cursor: pointer;
+        transition: background-color 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+
+    .bloque-audio:hover {
+        background-color: rgba(255, 85, 0, 0.1); 
+        border-color: var(--naranja-fuego);
+        box-shadow: 0 0 25px var(--naranja-fuego), inset 0 0 15px rgba(255, 85, 0, 0.2); 
+    }
+
+    @media (max-width: 1200px) { .grilla-comparativa { grid-template-rows: 350px 350px; } }
+    @media (max-width: 768px) { .grilla-comparativa { grid-template-rows: 250px 250px 250px 250px; grid-template-columns: 1fr; } }
+
+    /* ==========================================================================
+       📊 SECCIÓN: ANÁLISIS CONCEPTUAL
+       ========================================================================== */
+    .panel-analisis {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 2.5rem; 
+        margin-bottom: 4rem;
+    }
+
+    .analisis-box {
+        background-color: rgba(5, 2, 8, 0.7);
+        border-top: 3px solid var(--marron-oxido); 
+        padding: 2.5rem 2rem; 
+        transition: border-color 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .analisis-box:hover {
+        border-top-color: var(--naranja-fuego); 
+        background-color: rgba(15, 5, 15, 0.9);
+        box-shadow: 0 10px 30px rgba(255, 85, 0, 0.15);
+    }
+
+    .analisis-box h3 {
+        text-align: left;
+        font-size: 1.25rem;
+        margin-bottom: 1.2rem;
+        color: var(--crema-texto);
+        letter-spacing: 1.5px;
+    }
+
+    .analisis-box p {
+        font-family: 'Roboto', sans-serif;
+        font-size: 0.88rem;
+        font-weight: 300;
+        color: rgba(255, 255, 255, 0.8);
+        text-align: justify;
+        line-height: 1.6;
+    }
+
+    /* ==========================================================================
+       🏛️ PIE DE PÁGINA
+       ========================================================================== */
+    footer {
+        text-align: center;
+        font-family: 'Roboto', sans-serif;
+        font-size: 0.8rem;
+        color: rgba(255, 255, 255, 0.4);
+        margin-top: 6rem;
+        padding-top: 2rem;
+        border-top: 1px solid rgba(255, 85, 0, 0.2); 
+        line-height: 1.6;
+    }
+
+    footer .aclaracion { color: rgba(255, 255, 255, 0.25); margin-top: 0.3rem; }
+    @media (max-width: 768px) { .header-proyecto h1 { font-size: 2.2rem; } body { padding: 1rem 0; } }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Courier+Prime:wght@700&family=Libre+Baskerville:ital,wght@0,400;0,700&family=Orbitron:wght@600;800&family=Playfair+Display:ital,wght@0,600;1,600&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <audio id="audio-cinta" src="sonido/rudioCinta.mp3" preload="auto"></audio>
+    <audio id="audio-vinilo" src="sonido/rudioVinilo.mp3" preload="auto"></audio>
+    <audio id="audio-cassette" src="sonido/ruidoCassette.mp3" preload="auto"></audio>
+    <audio id="audio-digital" src="sonido/audioDigitalSoporte.mp3" preload="auto"></audio>
+
+    <div class="container">
+
+        <header class="header-proyecto">
+            <h1>Memoria del Sonido</h1>
+            <p class="resumen">
+                Un recorrido conceptual a través de los soportes que resguardaron nuestra memoria auditiva. Desde la imperfección física del surco analógico hasta la intangibilidad del bit digital, analizamos cómo el formato moldea nuestra percepción del tiempo.
+            </p>
+        </header>
+
+        <main>
+            <section class="seccion-video">
+                <div class="video-contenedor">
+                    <video controls poster="imagen/thumbnail.jpeg">
+                        <source src="imagen/DOCU PARA WEB.mp4" type="video/mp4">
+                        Tu navegador no soporta la reproducción de video.
+                    </video>
+                </div>
+                <p class="video-caption">Registro Audiovisual: La Evolución del Soporte (Ensayo FADU)</p>
+            </section>
+
+            <section class="seccion-formatos">
+                <h2>Cronología de Soportes</h2>
+                <div class="grilla-formatos">
+                    
+                    <article class="formato-card formato-cinta" data-audio="audio-cinta">
+                        <div class="imagen-box">
+                            <img src="imagen/cinta.png" alt="Formato Cinta de Bobina">
+                        </div>
+                        <h3>Cinta</h3>
+                        <p class="texto-revelado oculto">Saturación armónica natural y almacenamiento magnético pionero.</p>
+                    </article>
+
+                    <article class="formato-card formato-vinilo" data-audio="audio-vinilo">
+                        <div class="imagen-box">
+                            <img src="imagen/vinilo.png" alt="Formato Vinilo">
+                        </div>
+                        <h3>Vinilo</h3>
+                        <p class="texto-revelado oculto">Fidelidad mecánica y calor analógico grabado en surcos físicos.</p>
+                    </article>
+
+                    <article class="formato-card formato-cassette" data-audio="audio-cassette">
+                        <div class="imagen-box">
+                            <img src="imagen/cassette.png" alt="Formato Cassette">
+                        </div>
+                        <h3>Cassette</h3>
+                        <p class="texto-revelado oculto">La democratización del audio portátil mediante cinta magnética compacta.</p>
+                    </article>
+
+                    <article class="formato-card formato-digital" data-audio="audio-digital">
+                        <div class="imagen-box">
+                            <img src="imagen/digital.png" alt="Formato Digital">
+                        </div>
+                        <h3>Digital</h3>
+                        <p class="texto-revelado oculto">Música líquida: la abstracción total del sonido en código binario.</p>
+                    </article>
+
+                </div>
+            </section>
+
+            <section class="seccion-comparaciones">
+                <h2>Comparaciones</h2>
+                <p class="instruccion">Hacé un click en la pantalla para activar el sistema y pasá el mouse por la grilla para escuchar las diferencias físicas.</p>
+                
+                <div class="grilla-comparativa">
+                    <div class="bloque-audio" id="bloque-1"></div>
+                    <div class="bloque-audio" id="bloque-2"></div>
+                    <div class="bloque-audio" id="bloque-3"></div>
+                    <div class="bloque-audio" id="bloque-4"></div>
+                </div>
+            </section>
+
+            <section class="seccion-analisis">
+                <h2>Conceptos Clave</h2>
+                <div class="panel-analisis">
+                    <div class="analisis-box">
+                        <h3>MEMORIA</h3>
+                        <p>La integridad de la fuente. Cuando llega un archivo que tiene años, el sonido se va 'cansando' o corrompiendo. Cuando alguien le dé play, debería escuchar lo que el productor original quiso dejar ahí hace 30 o 40 años, no el ruido que le metió el paso del tiempo. Es devolverle a la obra su 'firma' original.</p>
+                    </div>
+                    <div class="analisis-box">
+                        <h3>FORMATO</h3>
+                        <p>El límite de la cancha. Si tenés una grabación en cinta, tenés una saturación armónica natural y un piso de ruido que son parte del sonido; si tenés un digital viejo, tenés un aliasing que a veces es hasta característico. No se busca que todo suene perfecto y plano; sino respetar las 'mañas' de cada formato.</p>
+                    </div>
+                    <div class="analisis-box">
+                        <h3>ARCHIVO</h3>
+                        <p>Es tu base de datos técnica. Si no está claro en qué sample rate se grabó, si tiene una conversión mal hecha o si el formato está comprimido, estás laburando a ciegas. Un buen archivo es aquel que, si mañana me muero y viene otro productor a abrir el proyecto, entiende perfectamente la cadena y la calidad.</p>
+                    </div>
+                    <div class="analisis-box">
+                        <h3>DIGITAL</h3>
+                        <p>Paso crítico de la traducción. Momento donde agarrás el mundo físico —el magnetismo de una cinta o la aguja en el vinilo— y lo pasás a unos y ceros. Si en ese paso te equivocás, perdiste la mitad de la información y ya no hay vuelta atrás. Digitalizar es capturar la esencia sin meterle ruido de conversión.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>Historia Analítica de los Medios Audiovisuales II – Cátedra Manetti – FADU – UBA</p>
+            <p class="aclaracion">Grupo 12  Argüelles - Da Rocha - Hahn - Rivero - Sanabria - Sánchez Usnayo  </p>
+            <p class="aclaracion">Comisión 2 - Julián-Luna-Delfina 2º Cuatrimestre.</p>
+        </footer>
+    </div>
+
+    <script>
+    let audioActual = null;
+    let cardActual = null;
+    let temporizadorInactividad = null;
+
+    function reiniciarTemporizador() {
+        clearTimeout(temporizadorInactividad);
+        temporizadorInactividad = setTimeout(() => {
+            if (audioActual) {
+                audioActual.pause();
+                audioActual.currentTime = 0;
+                if (cardActual) {
+                    cardActual.classList.remove('activo');
+                }
+                audioActual = null;
+                cardActual = null;
+                console.log("Audio e incandescencia detenidos por inactividad.");
+            }
+        }, 10000); 
+    }
+
+    // 1. Cronología de Soportes
+    document.querySelectorAll('.formato-card').forEach(card => {
+        card.addEventListener('click', () => {
+            const audioId = card.getAttribute('data-audio');
+            const audioSoporte = document.getElementById(audioId);
+
+            if (!audioSoporte) return;
+
+            const parrafo = card.querySelector('.texto-revelado');
+            if (parrafo) {
+                parrafo.classList.remove('oculto');
+            }
+
+            if (audioActual === audioSoporte) {
+                audioSoporte.pause();
+                audioSoporte.currentTime = 0;
+                card.classList.remove('activo');
+                audioActual = null;
+                cardActual = null;
+                clearTimeout(temporizadorInactividad);
+                return;
+            }
+
+            if (audioActual && audioActual !== audioSoporte) {
+                audioActual.pause();
+                audioActual.currentTime = 0;
+                if (cardActual) {
+                    cardActual.classList.remove('activo');
+                }
+            }
+
+            audioSoporte.currentTime = 0;
+            audioSoporte.play().then(() => {
+                audioActual = audioSoporte;
+                cardActual = card;
+                card.classList.add('activo');
+                reiniciarTemporizador();
+            }).catch(e => {
+                console.log("Se requiere interacción previa en el documento.");
+            });
+        });
+    });
+
+    // 2. Grilla de Comparaciones Sincronizada
+    const bloques = document.querySelectorAll('.bloque-audio');
+    let audioActivo = null;
+    let tiempoGuardado = 0; 
+
+    const audiosMapeados = {
+        'bloque-1': new Audio('sonido/cancionCinta.mp3'),
+        'bloque-2': new Audio('sonido/cancionVinilo.mp3'),
+        'bloque-3': new Audio('sonido/cancionCassette.mp3'),
+        'bloque-4': new Audio('sonido/cancionDigital.mp3')
+    };
+
+    Object.values(audiosMapeados).forEach(audio => {
+        audio.loop = true;
+    });
+
+    bloques.forEach(bloque => {
+        bloque.addEventListener('mouseenter', (e) => {
+            const idBloque = e.target.id;
+            audioActivo = audiosMapeados[idBloque];
+
+            if (audioActivo) {
+                audioActivo.currentTime = tiempoGuardado;
+                audioActivo.play().catch(err => console.log("Espera interacción:", err));
+            }
+        });
+
+        bloque.addEventListener('mouseleave', () => {
+            if (audioActivo) {
+                tiempoGuardado = audioActivo.currentTime; 
+                audioActivo.pause();
+                audioActivo = null;
+            }
+        });
+    });
+    </script>
+</body>
+</html>
