@@ -1,0 +1,427 @@
+/* ==========================================================================
+   🎨 VARIABLES GLOBALES (Contraste Calibrado - Paleta Incandescente 2026)
+   ========================================================================== */
+:root {
+    --fondo-obscuro: #020102;       /* Negro absoluto de base */
+    --crema-texto: #ffffff;         /* Blanco puro para lectura clara */
+    --naranja-fuego: #ff5500;       /* Naranja puro vivo (Intacto) */
+    --amarillo-incandescente: #ffee00; /* Brillo de máxima intensidad */
+    --marron-oxido: #5a2205;        /* Marrón/óxido para bordes secundarios y estructura */
+    --rojo-quemado: #3a0808;        /* Tono profundo para sombras y detalles oscuros */
+    --azul-penumbra: #0022aa;       /* Azul reducido en intensidad para el fondo */
+}
+
+/* ==========================================================================
+   🎯 RESET Y CONFIGURACIÓN GENERAL INTERNÉUTICA
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--fondo-obscuro);
+    background-image: 
+        radial-gradient(at 15% 25%, rgba(255, 85, 0, 0.25) 0px, transparent 50%),
+        radial-gradient(at 85% 75%, rgba(0, 34, 170, 0.2) 0px, transparent 45%);
+    background-attachment: fixed;
+    color: var(--crema-texto);
+    font-family: 'Libre Baskerville', serif;
+    line-height: 1.6;
+    padding: 2rem 0;
+}
+
+.container {
+    max-width: 75rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+/* ==========================================================================
+   🎯 SECCIÓN: TÍTULO Y RESUMEN
+   ========================================================================== */
+.header-proyecto {
+    text-align: center;
+    margin-bottom: 4rem;
+    border-bottom: 1px solid rgba(255, 85, 0, 0.2); 
+    padding-bottom: 2.5rem;
+}
+
+.header-proyecto h1 {
+    font-size: 3rem;
+    color: var(--crema-texto);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 1.5rem;
+    text-shadow: 0 0 15px rgba(255, 85, 0, 0.6);
+}
+
+.header-proyecto .resumen {
+    font-family: 'Roboto', sans-serif;
+    max-width: 40rem;
+    margin: 0 auto;
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 1.05rem;
+    font-weight: 300;
+    text-wrap: balance;
+}
+
+/* ==========================================================================
+   🎬 SECCIÓN: VIDEO
+   ========================================================================== */
+.seccion-video {
+    margin-bottom: 5rem;
+    text-align: center;
+}
+
+.video-contenedor {
+    max-width: 50rem;
+    margin: 0 auto;
+    border: 2px solid var(--marron-oxido); 
+    padding: 10px;
+    background-color: #000000;
+    box-shadow: 0 0 30px rgba(90, 34, 5, 0.3); 
+}
+
+.video-contenedor video {
+    width: 100%;
+    display: block;
+    filter: contrast(1.2) brightness(1);
+}
+
+.video-caption {
+    margin-top: 1rem;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.5);
+    font-style: italic;
+}
+
+/* ==========================================================================
+   🕹️ TEXTOS DE INSTRUCCIÓN 
+   ========================================================================== */
+.instruccion {
+    text-align: center;
+    max-width: 42rem; 
+    margin: 0 auto 2.5rem auto; 
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.65);
+    text-wrap: balance; 
+}
+
+/* ==========================================================================
+   📀 SECCIÓN: LOS 4 FORMATOS 
+   ========================================================================== */
+.seccion-formatos h2, .seccion-comparaciones h2, .seccion-degradacion h2, .seccion-analisis h2, .contenedor-arqueologia h2 {
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    color: var(--crema-texto);
+    margin-top: 4rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    border-bottom: 1px dashed rgba(255, 85, 0, 0.4);
+    padding-bottom: 0.5rem;
+}
+
+.grilla-formatos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 4rem;
+}
+
+.formato-card {
+    background-color: rgba(5, 2, 8, 0.85); 
+    border: 1px solid rgba(90, 34, 5, 0.4); 
+    padding: 1.5rem;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.formato-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--naranja-fuego);
+    box-shadow: 0 0 25px var(--naranja-fuego); 
+}
+
+.formato-card.activo {
+    border-color: var(--amarillo-incandescente);
+    box-shadow: 0 0 35px var(--naranja-fuego), inset 0 0 15px rgba(255, 238, 0, 0.3);
+}
+
+.formato-card .imagen-box {
+    width: 100%;
+    height: 180px;
+    background-color: #000000;
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+    border: 1px solid rgba(255, 85, 0, 0.2); 
+}
+
+.formato-card .imagen-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: saturate(0.2) brightness(0.6) contrast(1.2); 
+    transition: filter 0.3s ease;
+}
+
+.formato-card:hover .imagen-box img {
+    filter: saturate(1.4) brightness(1.1) contrast(1.1); 
+}
+
+.texto-revelado {
+    margin-top: 0.5rem;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.texto-revelado.oculto {
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* ==========================================================================
+   🖋️ IDENTIDADES TIPOGRÁFICAS DE SOPORTES
+   ========================================================================== */
+.formato-cinta h3 { font-family: 'Cinzel', serif; font-size: 1.4rem; font-weight: 700; letter-spacing: 2px; color: var(--crema-texto); margin-bottom: 0.6rem; }
+.formato-cinta p { font-family: 'Cinzel', serif; font-size: 0.85rem; font-weight: 500; letter-spacing: 1px; color: #d4c4b3; line-height: 1.5; }
+
+.formato-vinilo h3 { font-family: 'Playfair Display', serif; font-size: 1.6rem; font-style: italic; font-weight: 600; color: var(--crema-texto); margin-bottom: 0.5rem; }
+.formato-vinilo p { font-family: 'Playfair Display', serif; font-style: italic; font-size: 0.9rem; color: #d4c4b3; line-height: 1.5; }
+
+.formato-cassette h3 { font-family: 'Courier Prime', monospace; font-size: 1.4rem; font-weight: bold; text-transform: uppercase; color: var(--crema-texto); letter-spacing: -1px; margin-bottom: 0.6rem; }
+.formato-cassette p { font-family: 'Courier Prime', monospace; font-size: 0.85rem; color: #bfae9c; line-height: 1.4; }
+
+.formato-digital h3 { font-family: 'Orbitron', sans-serif; font-size: 1.2rem; font-weight: 600; color: var(--crema-texto); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 0.7rem; }
+.formato-digital p { font-family: 'Orbitron', sans-serif; font-size: 0.78rem; letter-spacing: 1px; color: #bfae9c; line-height: 1.6; }
+
+/* ==========================================================================
+   🕹️ GRILLA DE COMPARACIONES (Cursor tipo mano añadido)
+   ========================================================================== */
+.grilla-comparativa {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 450px 450px; 
+    gap: 0; 
+    width: 100vw; 
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    margin-bottom: 6rem;
+    background-color: var(--fondo-obscuro); 
+    padding: 0; 
+    border-top: 2px solid var(--marron-oxido);    
+    border-bottom: 2px solid var(--marron-oxido); 
+    box-shadow: 0 0 40px rgba(90, 34, 5, 0.2);
+}
+
+.bloque-audio {
+    background-color: rgba(0, 0, 0, 0.4);
+    border: 1px solid transparent;
+    cursor: pointer; /* Modificado: De crosshair a mano con dedo índice */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.bloque-audio:hover {
+    background-color: rgba(255, 85, 0, 0.1); 
+    border-color: var(--naranja-fuego);
+    box-shadow: 0 0 25px var(--naranja-fuego), inset 0 0 15px rgba(255, 85, 0, 0.2); 
+}
+
+@media (max-width: 1200px) { .grilla-comparativa { grid-template-rows: 350px 350px; } }
+@media (max-width: 768px) { .grilla-comparativa { grid-template-rows: 250px 250px 250px 250px; grid-template-columns: 1fr; } }
+
+/* ==========================================================================
+   📊 SECCIÓN: ANÁLISIS CONCEPTUAL
+   ========================================================================== */
+.panel-analisis {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 2.5rem; 
+    margin-bottom: 4rem;
+}
+
+.analisis-box {
+    background-color: rgba(5, 2, 8, 0.7);
+    border-top: 3px solid var(--marron-oxido); 
+    padding: 2.5rem 2rem; 
+    transition: border-color 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.analisis-box:hover {
+    border-top-color: var(--naranja-fuego); 
+    background-color: rgba(15, 5, 15, 0.9);
+    box-shadow: 0 10px 30px rgba(255, 85, 0, 0.15);
+}
+
+.analisis-box h3 {
+    text-align: left;
+    font-size: 1.25rem;
+    margin-bottom: 1.2rem;
+    color: var(--crema-texto);
+    letter-spacing: 1.5px;
+}
+
+.analisis-box p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.88rem;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.8);
+    text-align: justify;
+    line-height: 1.6;
+}
+
+/* ==========================================================================
+   🎛️ CONSOLAS INTERACTIVAS (Cursores tipo mano aplicados a controles)
+   ========================================================================== */
+.control-degradar-box, .consola-restauracion {
+    background: linear-gradient(145deg, #020005, #120902);
+    border: 2px solid var(--marron-oxido); 
+    padding: 3rem 2rem;
+    max-width: 45rem;
+    margin: 3rem auto;
+    text-align: center;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9), 0 0 20px rgba(90, 34, 5, 0.15);
+    border-radius: 6px;
+}
+
+.interface-dial {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    margin: 2.5rem 0;
+}
+
+.label-dial, .control-perilla label {
+    font-family: 'Courier Prime', monospace;
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.8);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.perillas-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin: 2.5rem 0;
+}
+
+.control-perilla {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    text-align: left;
+}
+
+#dial-tiempo, #param-graves, #param-agudos {
+    -webkit-appearance: none; 
+    appearance: none;
+    width: 100%;
+    height: 6px;
+    background: #000000;
+    border-bottom: 1px solid rgba(255, 85, 0, 0.3); 
+    outline: none;
+    cursor: pointer; /* Añadido: Cursor de mano para la barra deslizadora */
+}
+.interface-dial #dial-tiempo { width: 50%; }
+
+#dial-tiempo::-webkit-slider-thumb, #param-graves::-webkit-slider-thumb, #param-agudos::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 24px;
+    height: 36px;
+    background: linear-gradient(180deg, var(--amarillo-incandescente) 0%, var(--naranja-fuego) 100%);
+    border: 1px solid #000;
+    cursor: pointer; /* Modificado: Cursor de mano específico para el dial/perilla móvil */
+    box-shadow: 0 0 15px var(--naranja-fuego);
+}
+
+#dial-tiempo::-moz-range-thumb, #param-graves::-moz-moz-range-thumb, #param-agudos::-moz-range-thumb {
+    width: 24px;
+    height: 36px;
+    background: linear-gradient(180deg, var(--amarillo-incandescente) 0%, var(--naranja-fuego) 100%);
+    border: 1px solid #000;
+    cursor: pointer; /* Modificado: Compatibilidad para Firefox */
+    box-shadow: 0 0 15px var(--naranja-fuego);
+}
+
+#btn-play-degradar, #btn-arqueologia {
+    font-family: 'Courier Prime', monospace;
+    font-size: 0.85rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: var(--fondo-obscuro);
+    background-color: var(--crema-texto);
+    border: none;
+    padding: 1rem 2.5rem;
+    cursor: pointer; /* Asegura cursor tipo mano en botones */
+    letter-spacing: 2px;
+    box-shadow: 0 4px 0 var(--naranja-fuego);
+    transition: transform 0.1s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+#btn-play-degradar:hover, #btn-arqueologia:hover {
+    background-color: #ffffff;
+    box-shadow: 0 4px 0 var(--naranja-fuego), 0 0 20px rgba(255, 85, 0, 0.5);
+}
+
+#btn-play-degradar:active, #btn-arqueologia:active {
+    box-shadow: 0 1px 0 var(--naranja-fuego);
+    transform: translateY(3px);
+}
+
+.pantalla-frecuencia {
+    background-color: #000000;
+    border: 1px solid var(--marron-oxido); 
+    color: var(--marron-oxido);            
+    font-family: monospace;
+    padding: 1rem;
+    margin-bottom: 2rem;
+    letter-spacing: 1px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.pantalla-frecuencia.exito {
+    color: var(--amarillo-incandescente);
+    border-color: var(--naranja-fuego);
+    text-shadow: 0 0 10px var(--amarillo-incandescente);
+    box-shadow: 0 0 20px rgba(255, 85, 0, 0.2);
+}
+
+.transcripcion-oculta {
+    margin-top: 2rem;
+    padding: 2rem;
+    background-color: rgba(5, 2, 8, 0.9);
+    border: 1px dashed var(--naranja-fuego);
+    display: none;
+}
+.transcripcion-oculta.visible { display: block; animation: aparecer 0.5s ease forwards; }
+.transcripcion-oculta h3 { color: var(--naranja-fuego); margin-bottom: 0.5rem; font-size: 1.1rem; }
+
+@keyframes aparecer { from { opacity: 0; } to { opacity: 1; } }
+
+/* ==========================================================================
+   🏛️ PIE DE PÁGINA
+   ========================================================================== */
+footer {
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.4);
+    margin-top: 6rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 85, 0, 0.2); 
+    line-height: 1.6;
+}
+
+footer .aclaracion { color: rgba(255, 255, 255, 0.25); margin-top: 0.3rem; }
+@media (max-width: 768px) { .header-proyecto h1 { font-size: 2.2rem; } body { padding: 1rem 0; } }
